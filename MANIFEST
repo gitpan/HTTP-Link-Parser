@@ -1,0 +1,7 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/HTTP-Link-Parser.t
+lib/HTTP/Link/Parser.pm
+META.yml                                 Module meta-data (added by MakeMaker)

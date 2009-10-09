@@ -1,0 +1,24 @@
+--- #YAML:1.0
+name:               HTTP-Link-Parser
+version:            0.01
+abstract:           Perl extension for parsing HTTP Link headers
+author:
+    - Toby Inkster <mail@tobyinkster.co.uk>
+license:            unknown
+distribution_type:  module
+configure_requires:
+    ExtUtils::MakeMaker:  0
+build_requires:
+    ExtUtils::MakeMaker:  0
+requires:
+    HTTP::Response:  5.824
+    URI:             1.37
+    URI::Escape:     3.29
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.54
+meta-spec:
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4
