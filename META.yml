@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               HTTP-Link-Parser
-version:            0.02
+version:            0.03
 abstract:           Perl extension for parsing HTTP Link headers
 author:
     - Toby Inkster <mail@tobyinkster.co.uk>
@@ -12,6 +12,7 @@ build_requires:
     ExtUtils::MakeMaker:  0
 requires:
     HTTP::Response:  5.824
+    RDF::Trine:      0.110
     URI:             1.37
     URI::Escape:     3.29
 no_index:
