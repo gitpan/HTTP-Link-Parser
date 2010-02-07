@@ -14,20 +14,21 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 29cde1e8db8e4b849406b0a6f9e5800922e00f9b Changes
-SHA1 fb23a5c4005cdfd5f7debe0ea8ef766371301b6b MANIFEST
+SHA1 d1474cb01feaadcccd75a541216925e028b3a8b5 Changes
+SHA1 576ea5217df226045d2bc71b905c4805c80e30c6 Changes.ttl
+SHA1 f6d7002fd2dd5e96aeb642aec5c73495426b60f9 Changes.xml
+SHA1 aa0f9c5ee40e1411176a5f1f3fb6a514f807dcb1 MANIFEST
 SHA1 dea16e610108482511a9516e7bf83771ff3a16b7 MANIFEST.SKIP
-SHA1 541fe6921bcf46e77d6e1f127b67a3ca8128563b META.yml
-SHA1 49af4e74a64709dab325778a2f1bf88763572b17 Makefile.PL
-SHA1 92ea641f82f6c63d30edf355040b12649d1248f6 README
+SHA1 6ca0716323446a74e3fa5a950e61dd247688a7b2 META.yml
+SHA1 6e2277decd340124226e31ced7979dfba8f5d6f7 Makefile.PL
+SHA1 125b4e680e54551cd607253f4b4ed7bac57cb793 README
 SHA1 e5fb92ac217988bfc7a6af739b0459627020a27e inc/Module/AutoInstall.pm
 SHA1 fd5f3c4f0418efee3b9b16cf8c3902e8374909df inc/Module/Install.pm
 SHA1 5c529e96420d964b192f011b121283a4916f7331 inc/Module/Install/AutoInstall.pm
 SHA1 7cd7c349afdf3f012e475507b1017bdfa796bfbd inc/Module/Install/Base.pm
-SHA1 f44b14c70a49910001c29eebf0e36c2b085986da inc/Module/Install/Bugtracker.pm
 SHA1 ba186541bbf6439111f01fc70769cf24d22869bf inc/Module/Install/Can.pm
+SHA1 3369e95c2e5dc40a19931995dffa67929ff4d369 inc/Module/Install/DOAPChangeSets.pm
 SHA1 aaa50eca0d7751db7a4d953fac9bc72c6294e238 inc/Module/Install/Fetch.pm
-SHA1 a67b49e483a8d25bfb4bc2b06eac14644e67aafd inc/Module/Install/Homepage.pm
 SHA1 219da5a95c290312a81477b226f005997d97dcfd inc/Module/Install/Include.pm
 SHA1 3e83972921d54198d1246f7278f08664006cd65d inc/Module/Install/Makefile.pm
 SHA1 12bf1867955480d47d5171a9e9c6a96fabe0b58f inc/Module/Install/Metadata.pm
@@ -35,13 +36,13 @@ SHA1 a615bb050ca0b2d79bfa0224addcb83019a53b09 inc/Module/Install/ReadmeFromPod.p
 SHA1 f7ee667e878bd2faf22ee9358a7b5a2cc8e91ba4 inc/Module/Install/Win32.pm
 SHA1 8ed29d6cf217e0977469575d788599cbfb53a5ca inc/Module/Install/WriteAll.pm
 SHA1 1e6399a0585817abef500c34fce676fb9b0545f0 inc/Test/Signature.pm
-SHA1 7dc3cda9f3ae7089b3fff43d84e6791499501557 lib/HTTP/Link/Parser.pm
+SHA1 17f8e9e7a73351443b315f86e2f73f94854121c3 lib/HTTP/Link/Parser.pm
 SHA1 bb128dce2db8ad397dbeb957d79d084cc5d2391a t/00sig.t
-SHA1 650a7354f657fbdb5d4d5cf5386941bba8e6781f t/HTTP-Link-Parser.t
+SHA1 650a7354f657fbdb5d4d5cf5386941bba8e6781f t/01basic.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAksnrYwACgkQzr+BKGoqfTmI9QCfU7XpIMlKtCyBoROWUvM2kR3x
-FEQAnA3Jl5ncA60Bjo96NiyPDERCehra
-=wEsT
+iEYEARECAAYFAktvGnMACgkQzr+BKGoqfTmiEwCgjTwExPV9hGA8XgmcCSIj6piw
+HnUAniuSf8HuHqMYs2QEZng1DTJG8tHv
+=AE5z
 -----END PGP SIGNATURE-----
