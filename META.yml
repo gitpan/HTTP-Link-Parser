@@ -8,34 +8,39 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 1.00'
+generated_by: 'Module::Install version 1.02'
 keywords:
-  - RFC5988
-  - Link
   - HTTP
+  - Link
   - RDF
-  - Semantics
+  - RFC5988
   - Relationships
-  - Rel
+  - Semantics
+  - rel
 license: mit
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
+module_name: HTTP::Link::Parser
 name: HTTP-Link-Parser
 no_index:
   directory:
     - inc
     - t
+    - xt
 requires:
+  Carp: 0
   Encode: 0
-  RDF::Trine: 0.126
+  Exporter: 0
+  HTTP::Message: 0
+  RDF::Trine: 0.135
   Scalar::Util: 0
-  URI: 1.30
-  URI::Escape: 3.00
-  perl: 5.6.0
+  URI: 0
+  URI::Escape: 0
+  perl: 5.10.0
 resources:
   bugtracker: http://rt.cpan.org/Dist/Display.html?Queue=HTTP-Link-Parser
-  homepage: http://search.cpan.org/dist/HTTP-Link-Parser/
-  license: http://opensource.org/licenses/mit-license.php
-  repository: http://goddamn.co.uk/viewvc/perlmods/HTTP-Link-Parser/
-version: 0.101
+  homepage: https://metacpan.org/release/HTTP-Link-Parser
+  license: http://www.opensource.org/licenses/mit-license.php
+  repository: https://bitbucket.org/tobyink/p5-http-link-parser
+version: 0.102

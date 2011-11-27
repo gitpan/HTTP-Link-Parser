@@ -101,7 +101,7 @@ BUGS
 SEE ALSO
     <http://www.ietf.org/rfc/rfc5988.txt>
 
-    RDF::Trine, RDF::TrineShortcuts, HTTP::Response.
+    RDF::Trine, HTTP::Response, XRD::Parser, HTTP::LRDD.
 
     <http://n2.talis.com/wiki/RDF_JSON_Specification>.
 
