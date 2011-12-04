@@ -43,4 +43,4 @@ resources:
   homepage: https://metacpan.org/release/HTTP-Link-Parser
   license: http://www.opensource.org/licenses/mit-license.php
   repository: https://bitbucket.org/tobyink/p5-http-link-parser
-version: 0.102
+version: 0.103
