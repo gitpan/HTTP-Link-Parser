@@ -4,30 +4,30 @@ use 5.010;
 use strict;
 no warnings;
 
-our (@ISA, %EXPORT_TAGS, @EXPORT_OK, @EXPORT);
 BEGIN
 {
 	$HTTP::Link::Parser::AUTHORITY = 'cpan:TOBYINK';
-	$HTTP::Link::Parser::VERSION   = '0.103';
+	$HTTP::Link::Parser::VERSION   = '0.200';
 	
 	require Exporter;
-	@ISA = qw(Exporter);
-	%EXPORT_TAGS = (
+	our @ISA = qw(Exporter);
+	our %EXPORT_TAGS = (
 		'all'      => [qw/parse_links_into_model parse_links_to_rdfjson parse_links_to_list parse_single_link relationship_uri/],
 		'standard' => [qw/parse_links_into_model parse_links_to_rdfjson/],
-		);
-	@EXPORT_OK = @{ $EXPORT_TAGS{'all'} };
-	@EXPORT    = @{ $EXPORT_TAGS{'standard'} };
+	);
+	our @EXPORT_OK = @{ $EXPORT_TAGS{'all'} };
+	our @EXPORT    = @{ $EXPORT_TAGS{'standard'} };
 }
 
 use Carp qw(croak carp);
 use Encode qw(decode encode_utf8);
-use RDF::Trine '0.135';
 use Scalar::Util qw(blessed);
 use URI;
 use URI::Escape;
 
-use constant LINK_NAMESPACE => 'http://www.iana.org/assignments/relation/';
+use constant (
+	LINK_NAMESPACE => 'http://www.iana.org/assignments/relation/',
+);
 
 sub parse_links_into_model
 {
@@ -35,7 +35,9 @@ sub parse_links_into_model
 	
 	croak "Parameter to parse_links_into_model should be an HTTP::Message"
 		unless blessed($response) && $response->isa('HTTP::Message');
-		
+	
+	require RDF::Trine;
+	
 	my $model ||= RDF::Trine::Model->temporary_model;
 	$model->add_hashref(parse_links_to_rdfjson($response));
 	return $model;
@@ -70,7 +72,7 @@ sub parse_links_to_rdfjson
 					'type'     => 'uri',
 				};
 		}
-
+		
 		foreach my $r (@{ $link->{'rev'} })
 		{
 			my $r1 = relationship_uri($r);
@@ -114,7 +116,7 @@ sub parse_links_to_rdfjson
 					};
 			}
 		}
-
+		
 		if (defined $link->{'hreflang'})
 		{
 			foreach my $lang (@{ $link->{'hreflang'} })
@@ -126,7 +128,7 @@ sub parse_links_to_rdfjson
 					};
 			}
 		}
-
+		
 		if (defined $link->{'type'} && $link->{'type'} =~ m?([A-Z0-9\!\#\$\&\.\+\-\^\_]{1,127})/([A-Z0-9\!\#\$\&\.\+\-\^\_]{1,127})?i)
 		{
 			my $type    = lc $1;
@@ -145,13 +147,13 @@ sub parse_links_to_rdfjson
 sub relationship_uri
 {
 	my ($str) = @_;
-
+	
 	if ($str =~ /^([a-z][a-z0-9\+\.\-]{0,126})\:/i)
 	{
 		# seems to be an absolute URI, so can safely return "as is".
 		return $str;
 	}
-
+	
 	return LINK_NAMESPACE . lc $str;
 }
 
@@ -202,7 +204,7 @@ sub parse_single_link
 		$hdrv = substr($hdrv, length($1));
 		my $key = lc $2;
 		my $val = $3;
-	
+		
 		$val =~ s/(^"|"$)//g if ($val =~ /^".*"$/);
 		
 		if ($key eq 'rel')
@@ -263,20 +265,26 @@ sub parse_single_link
 	return $rv;
 }
 
-1;
-
-package HTTP::Link::Parser::PlainLiteral;
-
-use overload
-	'""' => sub { $_[0]->[0] },
-	'eq' => sub { $_[0]->[0] eq $_[1]->[0] and lc $_[0]->[2] eq lc $_[1]->[2] };
-
-sub value { $_[0]->[0]; }
-sub lang { length $_[0]->[2] ? $_[0]->[2] : undef; }
+{
+	package HTTP::Link::Parser::PlainLiteral;
+	
+	use overload
+		'""' => sub { $_[0]->[0] },
+		'eq' => sub { $_[0]->[0] eq $_[1]->[0] and lc $_[0]->[2] eq lc $_[1]->[2] };
+	
+	sub value { $_[0]->[0]; }
+	sub lang { length $_[0]->[2] ? $_[0]->[2] : undef; }
+}
 
 1;
 
 __END__
+
+=pod
+
+=encoding utf-8
+
+=for stopwords hreflang prev rel
 
 =head1 NAME
 
@@ -397,7 +405,7 @@ Please report any bugs to L<http://rt.cpan.org/>.
 
 =head1 SEE ALSO
 
-L<http://www.ietf.org/rfc/rfc5988.txt>
+L<http://www.ietf.org/rfc/rfc5988.txt>.
 
 L<RDF::Trine>,
 L<HTTP::Response>,
@@ -414,9 +422,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-Copyright (C) 2009-2011 by Toby Inkster
-
-=head2 a.k.a. "The MIT Licence"
+Copyright (C) 2009-2011, 2014 by Toby Inkster
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
